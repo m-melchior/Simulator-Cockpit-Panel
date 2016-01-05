@@ -1,0 +1,67 @@
+<!--
+  attitudeserial.xml
+  Simulator Cockpit Panel - Attitude Indicator
+  Copyright (C) 2016 Michael Melchior
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+  NOTE:
+  This is a FlightGear protocol file
+  to be stored in "flightgear/data/Protocol"
+  to be used either via fg gui or via command line:
+  
+  fgfs --generic=serial,out,50,<comport>,attitudeserial
+  
+  with <comport> being the comport in use
+  Under windows this might be COM<number of comport to be used>
+  Under Linux this might be /dev/ttyACM<number of comport to be used>
+  with <number of comport to be used> being the... you know the deal.
+  
+-->
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<generic>
+
+		<output>
+		
+			<line_separator>newline</line_separator>
+			<var_separator>;</var_separator>
+
+			<chunk>
+				<name>header</name>
+				<format>h0</format>
+			</chunk>			
+			
+			<chunk>
+				<name>pitch angle</name>
+				<node>/orientation/pitch-deg</node>
+				<type>float</type>
+				<factor>100</factor>
+				<format>%.0f</format>
+			</chunk>
+
+			<chunk>
+				<name>bank angle</name>
+				<node>/orientation/roll-deg</node>
+				<type>float</type>
+				<factor>100</factor>
+				<format>%.0f</format>
+			</chunk>
+
+		</output>
+
+	</generic>
+
+</PropertyList>
