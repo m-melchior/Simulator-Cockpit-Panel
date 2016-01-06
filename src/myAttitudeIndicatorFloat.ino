@@ -17,6 +17,9 @@
 // arduino servo library
 #include <Servo.h> 
 
+const int pitchPin = 9;
+const int rollPin = 10;
+
 // two servos to be used, one for pitch, the other for roll indication 
 Servo pitchServo, rollServo;
 
@@ -36,8 +39,8 @@ void setup()
   Serial.begin(9600);
   
   // notify the Servo library to use pins 9 and 10 for the servos
-  pitchServo.attach(9);
-  rollServo.attach(10);
+  pitchServo.attach(pitchPin);
+  rollServo.attach(rollPin);
 
   // start with both servos centered
   // by setting the values
